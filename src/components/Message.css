@@ -1,0 +1,22 @@
+.message-widget {
+    width: 100%;
+}
+
+.mailItem-firstline {
+    display: inline-block;
+    width: 50%
+}
+
+.mailItem-subject {
+    text-align: left
+}
+
+.mailItem-receivedDateTime{
+    text-align: right;
+}
+
+.mailItem-desc {
+    text-align: left;
+    padding-left: 20px
+}
+
