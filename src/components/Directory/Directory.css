@@ -1,0 +1,24 @@
+.directory-widget {
+    height: 100%;
+    display: flex;
+
+    /* Direction of the items, can be row or column */
+    flex-direction: column;
+}
+
+.messages-header {
+    height: 40px;
+    vertical-align: middle
+}
+
+.directory-header-title {
+    display: inline-block;
+}
+
+.directory-header-search {
+    display: inline-block;
+}
+
+.icons{
+    font-size:x-large;
+}

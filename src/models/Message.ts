@@ -1,12 +1,11 @@
-class EmailAdress {
-    name: string;
-    adress: string 
-}
+import {EmailAddress} from './commons';
 
 export default class Message {
     receivedDateTime : Date;
     subject: string;
     bodyPreview : string;
-    sender : EmailAdress;
+    sender : {
+        emailAddress : EmailAddress;
+    };
     webLink : string;
 }

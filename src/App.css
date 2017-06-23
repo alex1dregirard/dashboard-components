@@ -1,24 +1,45 @@
+body {
+  margin: 0;
+}
+
+/** Main Layout rules */
 .App {
-  text-align: center;
+  min-height: 100vh; 
+  display: flex;
+  flex-direction: column;
+  flex: 1;  
 }
 
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 80px;
+.App .body {
+  display: flex;
+  flex-direction: row;
+  flex: 1;
+  overflow: auto;
+  max-height: calc(100vh - 8em);
 }
 
-.App-header {
-  background-color: #222;
-  height: 150px;
-  padding: 20px;
-  color: white;
+.body .sidebar {
+  order: -1;
 }
 
-.App-intro {
-  font-size: large;
+.body .content {
+  flex: 1;
 }
 
-@keyframes App-logo-spin {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
+.body .sidebar {
+  max-width: 12em;
+  flex: 0 0 12em;
+}
+
+.App .header {
+  height: 4em;
+}
+
+.App .footer {
+  height: 4em;
+}
+
+/** Text */
+.text-red {
+  color: red;
 }

@@ -1,0 +1,55 @@
+.test {
+    height: 100%;
+}
+.messages-widget {
+    height: 100%;
+    display: flex;
+
+    /* Direction of the items, can be row or column */
+    flex-direction: column;
+}
+
+.messages-header {
+    height: 40px;
+}
+
+.messages-content {
+    flex: 1;
+    overflow: auto;
+}
+
+.messages-footer {
+    height: 40px;
+    text-align: right;
+}
+
+.message{
+    border-bottom: azure;
+    border-bottom-style: inset;
+    border-bottom-width: thick;
+}
+
+.message-firstline {
+    display: inline-block;
+    width: 100%    
+}
+
+.message-secondline {
+    width: 100%;
+}
+
+.message-sender {
+    display: inline-block;
+    width: 75%;
+}
+
+.message-receivedDateTime{
+    display: inline-block;  
+    width: 25%;    
+    text-align: right;
+}
+
+.message-desc {
+    text-align: left;
+    padding-left: 20px
+}

@@ -1,0 +1,39 @@
+.event-widget {
+    height: 100%;
+    display: flex;
+
+    /* Direction of the items, can be row or column */
+    flex-direction: column;
+}
+
+.event-header {
+    height: 40px;
+}
+
+.event-content {
+    flex: 1;
+    overflow: auto;
+}
+
+.event-footer {
+    height: 40px;
+    text-align: right;
+}
+
+.mailItem-firstline {
+    display: inline-block;
+    width: 50%
+}
+
+.mailItem-subject {
+    text-align: left
+}
+
+.mailItem-receivedDateTime{
+    text-align: right;
+}
+
+.mailItem-desc {
+    text-align: left;
+    padding-left: 20px
+}
