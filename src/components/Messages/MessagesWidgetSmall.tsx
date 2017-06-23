@@ -1,48 +1,20 @@
 import * as React from 'react';
 
-import * as actions from '../../actions/UserAction';
-import { StoreState, Sort } from '../../types/StoreState';
+//import * as actions from '../../actions/UserAction';
+import { StoreState } from '../../types/StoreState';
 import { connect, Dispatch } from 'react-redux';
 
-import Message from '../../models/Message';
-
-import './Message.css';
-
 interface MailProps {
-    messages: Array<Message>;
-    time: Date;
-    sort: Sort;
-    getUserMessages: (sort: Sort) => void; 
-    sortUserMessages: () => void; 
+    unreadItemCount: number;
+    totalItemCount: number;
 }
 
 class MessagesWidgetSmall extends React.Component<MailProps, null> {
-    
-    timer() {
-        this.props.getUserMessages(this.props.sort);
-    }
-  
-    componentDidMount() {
-        this.props.getUserMessages(this.props.sort);
-        
-        // this.props.intervalId = setInterval(this.timer.bind(this), 30000);
-        setInterval(this.timer.bind(this), 30000);
-    }
-    
-    componentWillUnmount() {
-        // clearInterval(this.intervalId);
-    }
-
-    componentWillReceiveProps(nextProps: MailProps) {
-        if ( JSON.stringify(this.props.sort) !== JSON.stringify(nextProps.sort) ) {
-            this.props.getUserMessages(nextProps.sort);
-        }
-    }
-
     render() {
         return(
             <div>
-                Nombre de message <span>{this.props.messages.length}</span>
+                Lu : <span>{this.props.totalItemCount}</span>
+                Non Lu : <span>{this.props.unreadItemCount}</span>
             </div>
         ); 
     }
@@ -50,15 +22,15 @@ class MessagesWidgetSmall extends React.Component<MailProps, null> {
 
 export function mapStateToProps(state: StoreState) {
   return {
-    messages: state.user.messages,
-    sort : state.user.sorts.messages
+    unreadItemCount: state.user.unreadItemCount,
+    totalItemCount: state.user.totalItemCount,
   };
 }
 
 export function mapDispatchToProps(dispatch: Dispatch<actions.UserAction>) {
   return {
     // TODO voir la bonne syntaxe pour ne pas passer le dispatch en paramètre
-    getUserMessages: (sort) => dispatch(actions.getUserMessages(sort, dispatch)),
+    // getUserMessages: (sort) => dispatch(actions.getUserMessages(sort, dispatch)),
   };
 }
 

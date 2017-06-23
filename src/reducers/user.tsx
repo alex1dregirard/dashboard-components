@@ -7,6 +7,8 @@ const initialUserState = {
   info : null,
   photo : '',
   messages : [],
+  unreadItemCount: null,
+  totalItemCount: null,
   messages_request_time : new Date(),
   events : [],
   events_request_time : new Date(),  
@@ -27,6 +29,8 @@ export function user(state: StoreUserState = initialUserState, action: UserActio
       return { ...state, photo: action.photo };            
     case 'USER_MESSAGES_SUCCEED':
       return { ...state, messages: action.messages, messages_request_time : new Date() };            
+  case 'USER_INBOX_SUCCEED':
+      return { ...state, unreadItemCount: action.unreadItemCount, totalItemCount: action.totalItemCount };                  
     case 'USER_MESSAGES_SORT' : 
       // A déplacer, ce traitement n'est pas fait au bon endroit
       let sortOrder = (state.sorts.messages.order === 'asc' ? 'desc' : 'asc');

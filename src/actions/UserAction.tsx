@@ -85,7 +85,19 @@ export function getUserMessages(sort: Sort, dispatch: Dispatch<{}>) {
         done(null, token);
       }
     });
-  
+
+    client
+      .api('/me/mailFolders/inbox')
+      .get((err, res) => {
+        if (!err) {
+          if (res) {
+          }
+          dispatch(userInboxSucceed(res.unreadItemCount, res.totalItemCount));
+        }else {
+          // dispatch(displayMessage(err.message));
+         }
+    });
+
     client
       .api('/me/mailFolders/inbox/messages')
       .orderby(sort.field + '%20' + sort.order)
@@ -104,6 +116,14 @@ export function getUserMessages(sort: Sort, dispatch: Dispatch<{}>) {
     return {
             type: 'USER_MESSAGES_REQUEST'
     };  
+}
+
+function userInboxSucceed(unreadItemCount: number, totalItemCount: number): UserAction {
+    return {
+        type: 'USER_INBOX_SUCCEED',
+        unreadItemCount: unreadItemCount,
+        totalItemCount: totalItemCount
+    };      
 }
 
 function userMessagesSucceed(messages: Array<Message>): UserAction {

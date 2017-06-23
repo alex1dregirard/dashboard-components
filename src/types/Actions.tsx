@@ -12,6 +12,8 @@ export interface UserAction {
   messages?:Array<Message>;
   events?:any
   eventsInterval?: any
+  unreadItemCount?: number,
+  totalItemCount?: number
 }
 
 export interface DirectoryAction {

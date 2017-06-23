@@ -17,16 +17,14 @@ interface Props {
 
 class Page2 extends React.Component<Props, null> {
   render() {
-
-
     var layout = [
-      {i: 'messages', x: 0, y: 0, w: 6, h: 3, minW: 2, minH: 2},
-      {i: 'events', x: 6, y: 0, w: 6, h: 3, minW: 4, minH: 4},
-      {i: 'directory', x: 0, y: 0, w: 6, h: 2 },
       {i: 'messages2', x: 0, y: 0, w: 2, h: 2, minW: 2, minH: 2},
+      {i: 'events', x: 2, y: 0, w: 10, h: 2},
+      {i: 'messages', x: 0, y: 1, w: 6, h: 3, minW: 2, minH: 2},
+      {i: 'directory', x: 6, y: 1, w: 6, h: 3 },      
     ];
 
-    var layouts = {lg: layout}
+    var layouts = {lg: layout};
 
     return (
       <div>

@@ -1,3 +1,6 @@
+import Message from '../models/Message';
+import Event from '../models/Event';
+
 // Store de l'application
 export interface StoreState {
     auth: StoreAuthState;
@@ -16,9 +19,11 @@ export interface StoreAuthState {
 export interface StoreUserState {
     info : any,
     photo : string,
-    messages : any
+    messages : Array<Message>,
+    unreadItemCount: number,
+    totalItemCount: number,
     messages_request_time : Date,
-    events : Array<any>,
+    events : Array<Event>,
     events_request_time : Date,
     eventsInterval : string, 
     sorts : {
