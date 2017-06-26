@@ -15,7 +15,7 @@ export function getUserInfo(dispatch: Dispatch<{}>) {
     let token: string = localStorage.getItem('token');
 
     let client = Client.init({
-      debugLogging: false,
+      debugLogging: true,
       authProvider: (done) => {
         done(null, token);
       }
@@ -28,11 +28,11 @@ export function getUserInfo(dispatch: Dispatch<{}>) {
           dispatch(userInfoSucceed(res));
         }else {
           // dispatch(displayMessage(err.message));
-         }
+        }
       });
 
     return {
-            type: 'USER_INFO_REQUEST'
+      type: 'USER_INFO_REQUEST'
     };
 }
 
@@ -145,7 +145,7 @@ export function getUserEvents(eventsInterval: any, dispatch: Dispatch<{}>) {
     let token: string = localStorage.getItem('token');
 
     let client = Client.init({
-      debugLogging: false,
+      debugLogging: true,
       authProvider: (done) => {
         done(null, token);
       }

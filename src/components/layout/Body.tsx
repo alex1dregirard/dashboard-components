@@ -22,8 +22,8 @@ class Body extends React.Component<BodyProps, null> {
     render() {
         const authentifiedBody = (
             <SwipeableRoutes swipeableViewsProps={{enableMouseEvents: false}}>
-              <Route path="/dashboard" component={Page1} />              
               <Route path="/sites" component={Page2} />              
+              <Route path="/dashboard" component={Page1} />              
             </SwipeableRoutes>            
         );
 

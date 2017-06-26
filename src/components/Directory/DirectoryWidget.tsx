@@ -24,6 +24,7 @@ import {
 import './Directory.css';
 
 interface DirectoryProps {
+  searchValue: string;
   users: Array<User>;
   searchUsers: (newValue: string) => void;   
 }
@@ -32,7 +33,7 @@ class DirectoryWidget extends React.Component<DirectoryProps, null> {
     render() {
         return(
             <div className="directory-widget">
-                <div className="messages-header ms-bgColor-themeTertiary">
+                <div className="ms-bgColor-themeTertiary">
                   <div className="directory-header-title ms-font-xxl">
                     Annuaire d'entreprise
                   </div>
@@ -45,7 +46,7 @@ class DirectoryWidget extends React.Component<DirectoryProps, null> {
                 </div>
                 <div className="messages-content">
                     {               
-                        this.props.users.length === 0 &&
+                        this.props.users.length === 0 && this.props.searchValue.length != 0 &&
                         <div>                            
                             <Label>Pas d'utilisateurs correspondant à votre recherche</Label>                
                         </div>
@@ -59,10 +60,7 @@ class DirectoryWidget extends React.Component<DirectoryProps, null> {
                                   key="myUserPersona"
                                   primaryText={user.displayName}
                                   secondaryText={user.mail}
-                                  tertiaryText={'In a meeting'}
-                                  optionalText={'Available at 4:00pm'}
                                   presence={PersonaPresence.dnd}
-
                               />
                         )}
                         />                           
@@ -77,6 +75,7 @@ class DirectoryWidget extends React.Component<DirectoryProps, null> {
 export function mapStateToProps(state: StoreState) {
   return {
     users: state.directory.users,
+    searchValue : state.directory.searchValue
     // time: state.user.messages_request_time,
     // sort : state.user.sorts.messages
   };

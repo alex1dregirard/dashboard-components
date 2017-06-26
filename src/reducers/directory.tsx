@@ -4,13 +4,14 @@ import { DirectoryAction } from '../types/Actions';
 
 // Etat du store par défaut
 const initialDirectoryState = {
-    users: []
+  searchValue: '',
+  users: []
 };
 
 export function directory(state: StoreDirectoryState = initialDirectoryState, action: DirectoryAction) {
   switch (action.type) {
     case 'DIRECTORY_USERS_SEARCH__SUCCEED' : 
-      return { ...state, users: action.users };                  
+      return { ...state, searchValue: action.searchValue, users: action.users };                  
     default:
       return state;
   }

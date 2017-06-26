@@ -85,9 +85,11 @@ export function login(dispatch: Dispatch<{}>) {
     hello.login('aad', options).then(
         function() {
             let token = hello('aad').getAuthResponse().access_token;
+            localStorage.setItem('token', token); // TODO Voir si c'est la bonne façon de gérer le token
             return dispatch(loginSucceed(token));
         },
         function(e: Error) {
+            console.log(e);
             return dispatch(loginFailed());
         }
     );  

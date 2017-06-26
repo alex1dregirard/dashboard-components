@@ -6,17 +6,14 @@
     flex-direction: column;
 }
 
-.messages-header {
-    height: 40px;
-    vertical-align: middle
-}
-
 .directory-header-title {
+    padding-left: 5px;
     display: inline-block;
 }
 
 .directory-header-search {
-    display: inline-block;
+    float:right;
+    padding-right: 10px;
 }
 
 .icons{

@@ -18,5 +18,6 @@ export interface UserAction {
 
 export interface DirectoryAction {
   type: string;  
+  searchValue: string;
   users?: any;
 }

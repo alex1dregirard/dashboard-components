@@ -33,6 +33,7 @@ export interface StoreUserState {
 
 // Partie du store gérant la notion de directory
 export interface StoreDirectoryState {
+    searchValue: string,
     users: Array<any>
 }
 

@@ -15,29 +15,37 @@ export function searchUsers(searchValue: string, dispatch: Dispatch<{}>) {
         done(null, token);
       }
     });
-  
-    client
-      .api('/users')
-      .filter('startswith(displayName, \'' + searchValue + '\')')
-      .get((err, res) => {
-        if (!err) {
-          let users = [];
-          if (res) {
-            users = res.value;
+    
+    let users = [];
+    if(searchValue.length != 0){
+      client
+        .api('/users')
+        .filter('startswith(displayName, \'' + searchValue + '\')')
+        .get((err, res) => {
+          if (!err) {
+            if (res) {
+              users = res.value;
+            }
+            dispatch(usersSearchSucceed(searchValue, users));
+          }else {
+            // dispatch(displayMessage(err.message));
           }
-          dispatch(usersSearchSucceed(users));
-        }else {
-          // dispatch(displayMessage(err.message));
-         }
-      });  
+        });  
+    }else{
+      dispatch(usersSearchSucceed(searchValue ,users));      
+    }
+
     return {
-            type: 'DIRECTORY_USERS_SEARCH_REQUEST'
+            type: 'DIRECTORY_USERS_SEARCH_REQUEST',
+            searchValue: searchValue
     };    
 }
 
-function usersSearchSucceed(users: Array<User>): DirectoryAction {
+function usersSearchSucceed(searchValue: string, users: Array<User>): DirectoryAction {
     return {
         type: 'DIRECTORY_USERS_SEARCH__SUCCEED',
-        users: users
+        users: users,
+        searchValue : searchValue
+
     };      
 }

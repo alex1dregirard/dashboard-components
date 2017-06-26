@@ -1,9 +1,14 @@
+# 
+ 
 Projet initialisé avec la version typeScript de [Create React App]
 (https://github.com/Microsoft/TypeScript-React-Starter, https://github.com/facebookincubator/create-react-app)
 
 create-react-app dashboard-components --scripts-version=react-scripts-ts
 
-# FIX-ME
+Démarrage en https
+set HTTPS=true
+
+## FIX-ME
   Voir comment réactivé l'option ["noImplicitAny": false] dans le fichier tsconfig.json
 "noImplicitAny": false,
 

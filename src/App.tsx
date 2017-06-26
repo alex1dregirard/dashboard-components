@@ -25,7 +25,6 @@ import { BrowserRouter as Router } from 'react-router-dom';
 // Composants de l'application
 import NavBar from './components/layout/NavBar';
 import Footer from './components/layout/Footer';
-
 import Body from './components/layout/Body';
 
 // Création du store
