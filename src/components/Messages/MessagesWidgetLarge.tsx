@@ -65,12 +65,17 @@ class MessagesWidgetLarge extends React.Component<MailProps, null> {
         
         return(
             <div className="messages-widget">
-                <div className="messages-header">
+                <div className="ms-bgColor-themeTertiary">
+                  <div className="directory-header-title ms-font-xxl">
+                    Messagerie
+                  </div>
+                  <div className="messages-header-command">   
                     <CommandBar
                         items={items}
                         farItems={farItems}
                     />
-                </div>
+                  </div>
+                </div>                
                 <div className="messages-content">
                     <List
                         className="ms-bgColor-themeLighterAlt"

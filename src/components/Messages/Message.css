@@ -9,6 +9,11 @@
     flex-direction: column;
 }
 
+.messages-header-command{
+    float:right;
+    padding-right: 10px;
+}
+
 .messages-header {
     height: 40px;
 }

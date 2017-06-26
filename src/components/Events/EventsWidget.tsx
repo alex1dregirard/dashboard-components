@@ -87,12 +87,17 @@ class EventsWidget extends React.Component<EventsProps, null> {
 
         return(
             <div className="event-widget">
-                <div className="event-header">
+                <div className="ms-bgColor-themeTertiary">
+                  <div className="directory-header-title ms-font-xxl">
+                    Calendrier
+                  </div>
+                  <div className="messages-header-command">   
                     <CommandBar 
                         items={items}
                         farItems={farItems} 
                     />
-                </div>
+                  </div>
+                </div>                                
                 <div className="event-content ms-bgColor-themeLighterAlt">
                     {               
                         this.props.events.length === 0 &&
